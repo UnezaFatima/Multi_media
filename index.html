@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step-Form</title>
+   <link rel="stylesheet" href="/Form.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+
+</head>
+
+ <!-- <script src="/Form.js"> </script> -->
+<body>
+       
+<div class="Container1" id="Container1">
+    <div class="sidebar" id="sidebar">
+        <div class="circle">
+            <p class="circle1" id="circle1">1</p>
+            <p class="circle2" id="circle2">2</p>
+            <p class="circle3" id="circle3">3</p>
+            <p class="circle4" id="circle4">4</p>
+        </div>
+    </div>
+
+    <div class="steps">
+        <div class="step1" id="step1">
+            <h2>STEP 1</h2>
+            <span>YOUR INFO</span>
+        </div>
+
+        <div class="step1" id="step2">
+            <h2>STEP 2</h2>
+            <span>SELECT PLAN</span>
+        </div>
+
+        <div class="step1" id="step3">
+            <h2>STEP 3</h2>
+            <span>ADD-ONS</span>
+        </div>
+
+        <div class="step1" id="step4">
+            <h2>STEP 4</h2>
+            <span>SUMMARY</span>
+        </div>
+    </div>
+</div>
+
+  <!-- perso info   -->
+
+<div class="Container2" id="Container2">
+    <form onsubmit="return validateForm()" id="personalInfoForm">
+        <div class="head" id="head">
+            <h1>Personal Info</h1>
+            <p class="description">Please provide your name, email, address, and phone number.</p>
+
+            <div class="Info">
+                <p>Name</p>
+                <span id="errorName" class="error"></span>
+            </div>
+            <input type="text" id="infoName" placeholder="e.g. Stephen King">
+
+            <div class="Info">
+                <p>Email Address</p>
+                <span id="errorMail" class="error"></span>
+            </div>
+            <input type="text" id="infoMail" placeholder="e.g. stephenKing@lorem.com">
+
+            <div class="Info">
+                <p>Phone Number</p>
+                <span id="errorNum" class="error"></span>
+            </div>
+            <input type="text" id="infoNum" placeholder="e.g. +1 234 567 890">
+
+            <div class="button">
+                <button type="submit" id="nextStepBtn">Next Step</button>
+            </div>
+        </div>
+    </form>
+</div>
+       
+
+    <!-- select plan -->
+
+    <div class="selctplan" id="selctplan">
+        <h1>Select your plans</h1>
+        <p class="description"> You have the option of monthly or yearly billing.</p>
+
+        <div class="planbtn" id="btn1">
+            <button class="btn1" id="Arcade" onclick="get1()">
+                <img class="image1" src="/assets/images/icon-arcade.svg" alt="">
+
+                <p>Arcade</p>
+                <span class="price1" id="price1">$9/mo</span>
+            </button>
+
+
+            <button class="btn2" id="Advanced" onclick="get2()">
+                <img class="image2" src="/assets/images/icon-advanced.svg" alt="">
+
+                <p>Advanced</p>
+                <span class="price2" id="price2">$12/mo</span>
+            </button>
+
+
+            <button class="btn3" id="Prop" onclick="get3()">
+                <img class="image3" src="/assets/images/icon-pro.svg" alt="">
+
+                <p>Pro</p>
+                <span class="price3" id="price1">$15/mo</span>
+            </button>
+        </div>
+
+        <!-- ............... -->
+
+        <div class="Month" id="planYear">
+
+            <button class="Mbtn" id="Arcade" onclick="get4()"><img
+                    src="/assets/images/icon-arcade.svg" alt="">
+
+                <p>Arcade</p>
+                <span class="priceYear">$90/yr</span>  <br/> 
+                <label class="free">2 months free</label>
+            </button>
+
+            <button class="Mbtn" id="Advanced" onclick="get5()"><img
+                    src="/assets/images//icon-advanced.svg" alt="">
+                <p>Advanced</p>
+                <span class="priceYear">$120/yr</span> <br/> 
+                <label class="free">2 months free</label>
+            </button>
+
+            <button class="Mbtn" id="Pro" onclick="get6()"><img src="/assets/images/icon-pro.svg"
+                    alt="">
+                <p>Pro</p>
+                <span class="priceYear">$150/yr</span>  <br/> 
+                <label class="free">2 months free</label>
+            </button>
+        </div>
+
+        <div class="switch">
+            <p class="monthly">Monthly</p>
+            <label class="check">
+                <input type="checkbox" id="switch" onclick="reset()">
+            </label> 
+            <i class="fa-solid fa-toggle-on"></i>
+            <p class="yearly">
+                Yearly
+            </p>
+        </div>
+
+        <div class="button2">
+            <button onclick="back()" class="goback"> Go Back </button>
+
+            <button onclick="next()" class="nextstep"> Next Step</button>
+        </div>
+    </div>
+
+
+
+    <!-- 3rd step--- ADD ON  -->
+
+    <div class="add" id="add">
+        <h1>Pick add-ones</h1>
+        <p class="description">
+            Add-ones enhance your gaming experience.
+        </p>
+
+        <!-- button  -->
+        <div id="add1">
+            <div class="add1Btn">
+                <div class="box">
+                    <input type="checkbox" name="addOne" id="onlineMois" value="1">
+                    <div class="addOne">
+                        <p class="size"> Online Services </p>
+                        <span>Access to multiplayer games</span>
+                    </div>
+                </div>
+                <p class="para"> +$1/mo </p>
+            </div>
+
+            <div class="add1Btn">
+                <div class="box">
+                    <input type="checkbox" name="addOne" id="storageMois" value="2">
+                    <div class="addOne">
+                        <p class="size"> Larger Storage </p>
+                        <span>Extra ITB of cloud saver </span>
+                    </div>
+                </div>
+                <p class="para"> +$2/mo</p>
+            </div>
+
+            <div class="add1Btn">
+                <div class="box">
+                    <input type="checkbox" name="addOne" id="customizableMois" value="2">
+                    <div class="addOne">
+                        <p class="size">Customizable Profile</p>
+                        <span>Custom theme on your profile </span>
+                    </div>
+                </div>
+                <p class="para">+$2/mo</p>
+            </div>
+
+        </div>
+
+        <!-- year button -->
+
+        <div class="add2">
+            <div class="add1Btn">
+                <div class="box">
+                    <input type="checkbox" name="addOne" id="onlineAnnee" value="10">
+                    <div class="addOne">
+                        <p class="size"> Online Services </p>
+                        <span>Access to multiplayer games</span>
+                    </div>
+                </div>
+                <p class="para"> +$10/yr </p>
+            </div>
+
+            <div class="add1Btn">
+                <div class="box">
+                    <input type="checkbox" name="addOne" id="storageAnnee" value="20">
+                    <div class="addOne">
+                        <p class="size"> Larger Storage </p>
+                        <span> ITB of cloud saver </span>
+                    </div>
+                </div>
+                <p class="para"> +$20/yr</p>
+            </div>
+
+            <div class="add1Btn">
+                <div class="box">
+                    <input type="checkbox" name="addOne" id="3" value="20" id="customizableAnnee">
+                    <div class="addOne">
+                        <p class="size">Customizable Profile</p>
+                        <span>Custom theme on your profile </span>
+                    </div>
+                </div>
+                <p class="para">+$20/yr</p>
+            </div>
+        </div>
+        <div class="button3">
+            <button onclick="back2()" class="goback"> Go Back </button>
+
+            <button onclick="next3()" class="nextstep"> Next Step</button>
+        </div>
+    </div>
+
+
+    <!-- summary  or resume -->
+    <div class="summary" id="isummary">
+        <h1>Fising up</h1>
+        <p class="description">Double-check everything looks OK before confirming. </p>
+
+        <div class="containR">
+            <div class="r">
+
+                <div id="flexRe">
+
+                    <div>
+                        <h4 id="modeR">Choose a plan </h4>
+                        <button onclick="go4()">Change </button>
+                    </div>
+                    <label for="" id="priceR"></label>
+                </div>
+                <br />
+                <span></span>
+
+                <div class="flexRe">
+                    <p>Online Service </p>
+                    <label for="" id="onlinePrice">+0$</label>
+                </div>
+
+                <div class="flexRe">
+                    <p>Larger Storage </p>
+                    <label for="" id="storagePrice">+0$</label>
+                </div>
+
+                <div class="flexRe">
+                    <p>Customizable profile </p>
+                    <label for="" id="CustomizablePrice">+0$</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="flexTotal">
+            <p id="modeTotal">Total</p>
+            <span id="totalPrice"> </span>
+            <span class="dollar">$</span>
+        </div>
+
+        <div class="btnCotant3">
+            <button onclick="back3()" class="goback"> Go Back </button>
+
+            <button onclick="next3()" class="nextstep"> Confirm</button>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Thank you -->
+
+    <div class="thanq" id="thanq">
+        <img src="/assets/images/icon-thank-you.svg" alt="">
+        <h1>Thank You!</h1>
+        <p>Thanks for confirming your subscription! we hope you have fun using our platform. If you
+            ever need support, please feel free to email us at support@loremgaming.com.</p>
+    </div>
+    </div>
+    </div>
+
+</body>
+<script src="/Form.js"></script>
+<!-- <script>
+    function validateForm() {
+    // Clear previous error messages
+    document.getElementById('errorName').textContent = '';
+    document.getElementById('errorMail').textContent = '';
+    document.getElementById('errorNum').textContent = '';
+
+    // Get form values
+    const name = document.getElementById('infoName').value.trim();
+    const email = document.getElementById('infoMail').value.trim();
+    const phone = document.getElementById('infoNum').value.trim();
+
+    // Regular expressions for validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^\+?\d{1,4}[\s.-]?\(?\d{1,4}\)?[\s.-]?\d{1,9}[\s.-]?\d{1,9}$/;
+
+    let isValid = true;
+
+    // Validate Name
+    if (name === '') {
+        document.getElementById('errorName').textContent = 'Name is required';
+        isValid = false;
+    }
+
+    // Validate Email
+    if (email === '') {
+        document.getElementById('errorMail').textContent = 'Email is required';
+        isValid = false;
+    } else if (!emailPattern.test(email)) {
+        document.getElementById('errorMail').textContent = 'Invalid email address';
+        isValid = false;
+    }
+
+    // Validate Phone Number
+    if (phone === '') {
+        document.getElementById('errorNum').textContent = 'Phone number is required';
+        isValid = false;
+    } else if (!phonePattern.test(phone)) {
+        document.getElementById('errorNum').textContent = 'Invalid phone number';
+        isValid = false;
+    }
+
+    // Return false if form is invalid to prevent submission
+    return isValid;
+}
+</script> -->
+</html>
